@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .time {
+          background-color: lightblue;
+          width: 0;
+          height: 20px;
+          line-height: 20px;
+      }
+      button {
+        margin: 5px;
+    }
+</style>
+</head>
+<body>
+    <div id="Demo1" class="time">0%</div>
+    <button id="btn1">run</button>
+    <div id="Demo2" class="time">0%</div>
+    <button id="btn2">run2</button>
+    <div id="Demo3" class="time">0%</div>
+    <button id="btn3">run3</button>
+    <script type="text/javascript">
+        var time1, time2, time3;
+        var btn1, btn2, btn3;
+        var myDiv1, myDiv2, myDiv3;
+
+        btn1 = document.querySelector("#btn1");
+        btn2 = document.querySelector("#btn2");
+        btn3 = document.querySelector("#btn3");
+
+        myDiv1 = document.querySelector("#Demo1");
+        myDiv2 = document.querySelector("#Demo2");
+        myDiv3 = document.querySelector("#Demo3");
+
+        btn1.onclick = function() {
+            // console.log("hello");
+            clearInterval(time1);
+            myDiv1.style.width = '0';
+            time1 = setInterval(function() {
+                if(parseInt(myDiv1.style.width) < 500) {
+                  myDiv1.style.width = parseInt(myDiv1.style.width) + 5 + 'px';
+                  myDiv1.innerHTML = parseInt(myDiv1.style.width)/5 + '%';
+              } else {
+                  clearInterval(time1);
+              }
+          }, 17);
+        };
+
+        btn2.onclick =  function() {
+            clearTimeout(time2);
+            myDiv2.style.width = '0';
+            time2 = setTimeout(function fn() {
+                if (parseInt(myDiv2.style.width) < 500) {
+                    myDiv2.style.width = parseInt(myDiv2.style.width) + 5 + 'px';
+                    myDiv2.innerHTML = parseInt(myDiv2.style.width)/5 + '%';
+                    time2 = setTimeout(fn, 17);
+                } else {
+                    clearTimeout(time2);
+                }
+
+            }, 17);
+        };
+
+        btn3.onclick = function() {
+            cancelAnimationFrame(time3);
+            myDiv3.style.width = '0';
+            time3 = requestAnimationFrame(function fn() {
+                if (parseInt(myDiv3.style.width) < 500) {
+                    myDiv3.style.width = parseInt(myDiv3.style.width) + 5 + 'px';
+                    myDiv3.innerHTML = parseInt(myDiv3.style.width)/5 + '%';
+                    time3 = requestAnimationFrame(fn);
+                } else {
+                    cancelAnimationFrame(time3);
+                }
+
+            });            
+        }
+    </script>
+</body>
+</html>
