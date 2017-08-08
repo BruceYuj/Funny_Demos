@@ -1,0 +1,44 @@
+
+<!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/repeating-linear-gradient -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+   div {
+    display: block;
+    width: 50%;
+    height: 80px;
+    border-color: #000000;
+    padding: 10px;
+  }
+
+  #grad1 {
+    background-image: -moz-repeating-linear-gradient(90deg,rgb(26,198,204),rgb(26,198,204) 6%, rgb(100,100,100) 10%);
+    background-image: -webkit-repeating-linear-gradient(90deg,rgb(26,198,204),rgb(26,198,204) 6%, rgb(100,100,100) 10%);
+    background-image: -o-repeating-linear-gradient(90deg,rgb(26,198,204),rgb(26,198,204) 6%, rgb(100,100,100) 10%);
+    background-image: repeating-linear-gradient(90deg,rgb(26,198,204),rgb(26,198,204) 6%,rgb(100,100,100) 10%);
+  }
+
+  #grad2 {
+    background-color: black;
+    background-image: -moz-repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(255,255,255,1) 25px, rgba(255,255,255,1) 50px);
+    background-image: -webkit-repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(255,255,255,1) 25px, rgba(255,255,255,1) 50px);
+    background-image: -o-repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(255,255,255,1) 25px, rgba(255,255,255,1) 50px);
+    background-image: -ms-repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(255,255,255,1) 25px, rgba(255,255,255,1) 50px);
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(255,255,255,1) 25px,rgba(255,255,255,1) 50px);
+  }   
+</style>
+</head>
+<body>
+ <ol>
+  <li>repeating gradient
+    <div id="grad1"></div>
+  </li>
+  <li>Zebra pattern   
+    <div id="grad2"></div>
+  </li>     
+</ol> 
+</body>
+</html>
