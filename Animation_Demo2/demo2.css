@@ -8,13 +8,13 @@ h4 {
     font-size: 110%;
 }
 ball {
-    width: 100px; height: 100px; border-radius: 100px;
+    width: 100px; height: 100px; border-radius: 50px;
     position: absolute; left: 50%; top: 500px;
     margin-left: -50px;
     background-color: #34538b;
-    background-image: -webkit-radial-gradient(100px 100px at 50px 20px, #a0b3d6, #34538b);
-    background-image:    -moz-radial-gradient(100px 100px at 50px 20px, #a0b3d6, #34538b);
-    background-image:         radial-gradient(100px 100px at 50px 20px, #a0b3d6, #34538b);
+    background-image: -webkit-radial-gradient(100px at 50px 20px, #a0b3d6, #34538b);
+    background-image:    -moz-radial-gradient(100px at 50px 20px, #a0b3d6, #34538b);
+    background-image:         radial-gradient(100px at 50px 20px, #a0b3d6, #34538b);
     cursor: move;
     z-index: 1;
 }
