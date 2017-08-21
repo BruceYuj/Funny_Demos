@@ -1,5 +1,4 @@
 /* requestAnimationFrame.js
- * by zhangxinxu 2013-09-30
 */
 (function() {
     var lastTime = 0;
