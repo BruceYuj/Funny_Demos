@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>finger drag demo</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            cursor: pointer;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>手指拖拽</h1>
+    <div id="fingerDrag" class="square"></div>
+    <h1>手势判断</h1>
+    <div id="gestureJudge" class="square"></div>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        var fingerDrag = document.getElementById("fingerDrag");
+        var gestureJudge = document.getElementById("gestureJudge");
+        var x, left, flag = true;
+        fingerDrag.addEventListener("touchstart", function(e) {
+            x = e.touches[0].pageX;
+            left = parseFloat($(this).css("left"));
+            // console.log(x + "," + left);
+        },false);
+        fingerDrag.addEventListener("touchmove", function(e) {
+            $(fingerDrag).css("left",e.touches[0].pageX-x+left);                
+        }, false);
+        fingerDrag.addEventListener("touchend", function(e) {
+            if (flag) { // flag用来判断当前element在左边还是右边
+                if ((e.changedTouches[0].pageX - x) < 200) $(fingerDrag).css("left", 0);
+                else {
+                    $(fingerDrag).css("left", 500);
+                    flag = false;
+                }               
+            } else {
+                if ((x - e.changedTouches[0].pageX) < 200) $(fingerDrag).css("left", 500);
+                else {
+                    $(fingerDrag).css("left", 0);
+                    flag = true;
+                }                 
+            }
+
+        }, false);
+
+        gestureJudge.addEventListener("touchstart", function(e) {
+            x = e.touches[0].pageX;
+        }, false);
+
+        gestureJudge.addEventListener("touchmove", function(e) {
+            if(e.touches[0].pageX - x > 50) $(gestureJudge).css("transform", "translateX(400px)");
+            else if (e.touches[0].pageX - x < -50) $(gestureJudge).css("transform", "translateX(0)");
+        }, false);
+    </script>
+</body>
+</html>
