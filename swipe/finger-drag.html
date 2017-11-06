@@ -26,6 +26,7 @@
         fingerDrag.addEventListener("touchstart", function(e) {
             x = e.touches[0].pageX;
             left = parseFloat($(this).css("left"));
+            $(this).css("transition", "");
             // console.log(x + "," + left);
         },false);
         fingerDrag.addEventListener("touchmove", function(e) {
@@ -33,15 +34,15 @@
         }, false);
         fingerDrag.addEventListener("touchend", function(e) {
             if (flag) { // flag用来判断当前element在左边还是右边
-                if ((e.changedTouches[0].pageX - x) < 200) $(fingerDrag).css("left", 0);
+                if ((e.changedTouches[0].pageX - x) < 200) $(fingerDrag).css("left", 0).css("transition", "all 1500ms ease");
                 else {
-                    $(fingerDrag).css("left", 500);
+                    $(fingerDrag).css("left", 500).css("transition", "all 1500ms ease");
                     flag = false;
                 }               
             } else {
-                if ((x - e.changedTouches[0].pageX) < 200) $(fingerDrag).css("left", 500);
+                if ((x - e.changedTouches[0].pageX) < 200) $(fingerDrag).css("left", 500).css("transition", "all 1500ms ease");
                 else {
-                    $(fingerDrag).css("left", 0);
+                    $(fingerDrag).css("left", 0).css("transition", "all 1500ms ease");
                     flag = true;
                 }                 
             }
@@ -53,8 +54,8 @@
         }, false);
 
         gestureJudge.addEventListener("touchmove", function(e) {
-            if(e.touches[0].pageX - x > 50) $(gestureJudge).css("transform", "translateX(400px)");
-            else if (e.touches[0].pageX - x < -50) $(gestureJudge).css("transform", "translateX(0)");
+            if(e.touches[0].pageX - x > 50) $(gestureJudge).css("transform", "translateX(400px)").css("transition", "all 1500ms ease");
+            else if (e.touches[0].pageX - x < -50) $(gestureJudge).css("transform", "translateX(0)").css("transition", "all 1500ms ease");
         }, false);
     </script>
 </body>
