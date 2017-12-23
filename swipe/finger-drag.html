@@ -27,7 +27,7 @@
             x = e.touches[0].pageX;
             left = parseFloat($(this).css("left"));
             $(this).css("transition", "");
-            // console.log(x + "," + left);
+            // console.log( + "," + left);
         },false);
         fingerDrag.addEventListener("touchmove", function(e) {
             $(fingerDrag).css("left",e.touches[0].pageX-x+left);                
@@ -56,7 +56,7 @@
         gestureJudge.addEventListener("touchmove", function(e) {
             if(e.touches[0].pageX - x > 50) $(gestureJudge).css("transform", "translateX(400px)").css("transition", "all 1500ms ease");
             else if (e.touches[0].pageX - x < -50) $(gestureJudge).css("transform", "translateX(0)").css("transition", "all 1500ms ease");
-        }, false);
-    </script>
+        }, false)
+;    </script>
 </body>
 </html>
